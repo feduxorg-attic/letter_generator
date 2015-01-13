@@ -20,6 +20,13 @@ Or install it yourself as:
 
 ## Usage
 
+You need to place an ERB-template at any of this places
+
+1. `<current working directory>/templates/letter.tt`
+2. `$HOME/.config/letter_generator/templates/letter.tt`
+3. `$HOME/.letter_generator/templates/letter.tt`
+4. `/etc/letter_generator/templates/letter.tt`
+
 Generate letter based on template:
 
 1. Create a directory first
