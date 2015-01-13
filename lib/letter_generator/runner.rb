@@ -9,7 +9,7 @@ module LetterGenerator
       content = LetterContent.new
       template = LetterTemplate.new
 
-      generator = LetterGenerator.new(template.file)
+      generator = Generator.new(template.file)
       generator.run(content, options[:output_file])
     end
   end

@@ -1,0 +1,74 @@
+\documentclass[%
+%fromphone=true,
+fromalign=left,
+foldmarks=BmTP,
+draft=true,
+]{scrlttr2}
+%%%%%%%%%%% pakete %%%%%%%%%%%%%%
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english,german]{babel}
+\usepackage[%
+pdfborder=0 0 0,
+plainpages=false,
+pdftitle={titel},
+pdfauthor={<%= from.name %>},
+]{hyperref}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{blindtext}
+\usepackage{paralist}
+ 
+\begin{document}
+
+<% if subject? -%>
+\pagestyle{headings}
+<% end -%>
+ 
+%%%%%%%%%%% Brief %%%%%%%%%%%%%%%%
+%%%%%%%%%%% Empfänger %%%%%%%%%%%%%%%%%
+\begin{letter}{%
+<%= to.name %>\\
+<% if to.co -%>
+<%= to.co %>\\
+<% end -%>
+<%= to.street %>\\
+<%= to.city %>
+}
+ 
+%%%%%%%%%%%%% Absender %%%%%%%%%%%%%%%%%
+\setkomavar{fromname}{<%= from.name %>}
+<% unless from.phone.blank? -%>
+\setkomavar{fromphone}{<%= from.phone %> }
+<% end -%>
+\setkomavar{fromaddress}{<%= from.street %>\\<%= from.city %>}
+ 
+%%%%%%%%%%%%% Betreff %%%%%%%%%%%%%%%%
+  \setkomavar{subject}{<%= subject %>}
+ 
+%%%%%%%%%%%%% Unterschrift %%%%%%%%%%%%%%%%
+<% unless signature.blank? -%>
+\setkomavar{signature}{<%= signature %>}
+<% end %>
+ 
+ 
+%\LoadLetterOption{DIN}
+\opening{<%= opening %>}
+
+<% unless text.blank? -%>
+<%= text %>
+<% end -%>
+ 
+\closing{<%= closing %>}
+%%%%%%%%%%%%% Postscriptum %%%%%%%%%%%%%%%
+<% unless postscriptum.blank? -%>
+\ps PS: 
+<% end -%>
+ 
+%%%%%%%%%%%%% Anhänge %%%%%%%%%%%%%%%
+<% attachments.each do |a| -%>
+\encl{<%= a %>}
+<% end -%>
+ 
+\end{letter}
+\end{document}
