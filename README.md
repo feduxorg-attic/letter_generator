@@ -1,6 +1,6 @@
 # LetterGenerator
 
-TODO: Write a gem description
+This generator will generate a LaTex Letter Template in current directory.
 
 ## Installation
 
