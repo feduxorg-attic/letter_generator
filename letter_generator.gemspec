@@ -8,7 +8,7 @@ Gem::Specification.new do |spec|
   spec.version       = LetterGenerator::VERSION
   spec.authors       = ['Max Meyer']
   spec.email         = ['dev@fedux.org']
-  spec.summary       = %q{Generate letters}
+  spec.summary       = 'Generate letters'
   spec.homepage      = 'https://github.com/maxmeyer/letter_generator'
   spec.license       = 'MIT'
 

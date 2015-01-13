@@ -1,6 +1,5 @@
 module LetterGenerator
   class LetterContent
-
     private
 
     attr_reader :data

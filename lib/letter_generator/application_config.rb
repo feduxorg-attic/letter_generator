@@ -10,6 +10,5 @@ module LetterGenerator
     def _config_name
       'application'
     end
-
   end
 end
