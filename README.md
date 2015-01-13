@@ -29,7 +29,7 @@ Generate letter based on template:
    cd directory
    ```
 
-2. Create a data file in directory
+2. Create a data file - e.g. data.yaml - in directory
 
    ```yaml
    from:
