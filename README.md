@@ -20,7 +20,34 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Generate letter based on template:
+
+1. Create a directory first
+
+```
+mkdir -p directory
+cd directory
+```
+
+2. Create a data file in directory
+
+from:
+  name: Max Muster
+  street: Musterstraße 1
+  city: 11111 Musterhausen
+to:
+  name: Mina Muster
+  street: Musterstraße 2
+  city: 22222 Musterstadt
+subject: Lovely hearing from you
+
+3. Run generator
+
+```bash
+letter_generator generate
+```
+
+After this a tex file named "letter.tex" exists.
 
 ## Contributing
 
