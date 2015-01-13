@@ -31,6 +31,7 @@ cd directory
 
 2. Create a data file in directory
 
+```yaml
 from:
   name: Max Muster
   street: Musterstraße 1
@@ -40,6 +41,7 @@ to:
   street: Musterstraße 2
   city: 22222 Musterstadt
 subject: Lovely hearing from you
+```
 
 3. Run generator
 
