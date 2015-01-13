@@ -1,6 +1,6 @@
 # LetterGenerator
 
-This generator will generate a LaTex Letter Template in current directory.
+This generator will generate a LaTex Letter Template in the current directory.
 
 ## Installation
 
