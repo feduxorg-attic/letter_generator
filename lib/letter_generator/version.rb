@@ -1,5 +1,5 @@
 # encoding: utf-8
 # LetterGenerator
 module LetterGenerator
-  VERSION = '0.0.3'
+  VERSION = '0.0.4'
 end
