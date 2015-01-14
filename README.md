@@ -20,6 +20,8 @@ Or install it yourself as:
 
 ## Usage
 
+To invoke the letter generator, you can use `lg` or `letter_generator`.
+
 You need to place an ERB-template at any of this places
 
 1. `<current working directory>/templates/letter.tt`
