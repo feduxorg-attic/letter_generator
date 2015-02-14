@@ -19,3 +19,11 @@ end
 Given(/^a config file named "(.*?)" with:$/) do |name, string|
   step %(a file named "~/.config/letter_generator/#{name}" with:), string
 end
+
+Given(/^a data file named "(.*?)" does not exist$/) do |name|
+  in_current_dir { FileUtils.rm_f File.expand_path("#{name}.yaml") }
+end
+
+Then(/^a data file named "(.*?)" should contain:$/) do |name, string|
+  step %(the file "#{name}.yaml" should contain:), string
+end
