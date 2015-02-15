@@ -10,8 +10,8 @@ module LetterGenerator
       @template = Tilt::ErubisTemplate.new(template_file)
     end
 
-    def run(data, file)
-      File.write(file, template.render(data))
+    def run(metadata, file)
+      File.write(file, template.render(metadata))
     end
   end
 end

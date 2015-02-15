@@ -1,0 +1,11 @@
+template_files = Rake::FileList.new('*.tt')
+tex_files = template_files.ext 'tex'
+pdf_files = tex_files.ext 'pdf'
+
+rule pdf_files => tex_files do |t|
+  sh %(pdflatex #{t.source})
+end
+
+rule tex_files => template_files do |t|
+  Generators::TexFileGenerator.invoke(t.source, output_files: t.name)
+end

@@ -7,20 +7,20 @@ module LetterGenerator
     end
 
     option :output_file, default: 'letter.tex', desc: 'Outputfile'
-
     desc 'generate', 'Generate template'
     def generate
-      content = LetterContent.new
-      template = LetterTemplate.new
-
-      generator = Generator.new(template.file)
-      generator.run(content, options[:output_file])
+      require 'pry'
+      binding.pry
+      Generators::TexFileGenerator.invoke(LetterTemplate.new.file, output_file: 'letter.tex')
     end
 
     desc 'init', 'Init local directory'
     def init
       source_paths << File.expand_path('../../../templates', __FILE__)
       template 'data', File.expand_path('data.yaml')
+
+      template = LetterTemplate.new
+      FileUtils.cp template.file, File.expand_path(File.basename(template.file))
     end
   end
 end

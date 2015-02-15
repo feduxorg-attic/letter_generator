@@ -1,14 +1,12 @@
 module LetterGenerator
-  class LetterContent
+  class LetterMetadata
     private
 
     attr_reader :data
 
     public
 
-    def initialize
-      file = Dir.glob(File.expand_path('*.yaml')).first
-
+    def initialize(file)
       if file
         @data = Psych.load_file(file).deep_symbolize_keys
       else

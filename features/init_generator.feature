@@ -6,7 +6,7 @@ Feature: Init generator
   Scenario: Non-existing files
     Given a data file named "data" does not exist
     When I successfully run `letter_generator init`
-    Then a data file named "data" should contain:
+    Then the data file "data" should contain:
     """
     from:
       name:
