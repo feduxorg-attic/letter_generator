@@ -11,7 +11,8 @@ module LetterGenerator
       argument :input_file, required: true
 
       def generate
-        metadata = LetterMatadata.new(Dir.glob(File.expand_path('*.yaml')).first)
+        binding.pry
+        metadata = LetterMetadata.new(Dir.glob(File.expand_path('*.yaml')).first)
 
         generator = Generator.new(input_file)
         generator.run(metadata, output_file)

@@ -39,6 +39,12 @@ Then(/^a letter named "(.*?)" should exist$/) do |name|
   step %(a file named "#{name}.tex" should exist)
 end
 
+
+
+Given(/^the default letter template exist in working directory$/) do
+  step %(a file named "templates/letter.tex.tt" with:), File.read(File.expand_path('../../templates/letter.tex.tt', __FILE__))
+end
+
 Given(/^the default letter template$/) do
   step %(a letter template named "letter" with:), File.read(File.expand_path('../../templates/letter.tex.tt', __FILE__))
 end

@@ -19,6 +19,8 @@ LetterGenerator.enable_debug_mode if ENV.key? 'DEBUG'
 
 require 'letter_generator/version'
 require 'letter_generator/logger'
+require 'letter_generator/sender'
+require 'letter_generator/addressee'
 require 'letter_generator/generator'
 require 'letter_generator/letter_metadata'
 require 'letter_generator/runner'

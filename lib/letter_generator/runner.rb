@@ -13,8 +13,7 @@ module LetterGenerator
     def generate
       enable_debug_mode
 
-      binding.pry
-      Generators::TexFileGenerator.invoke(LetterTemplate.new.file, output_file: 'letter.tex')
+      Generators::TexFileGenerator.start([LetterTemplate.new.file], output_file: 'letter.tex')
     end
 
     desc 'init', 'Init local directory'

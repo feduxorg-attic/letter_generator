@@ -17,11 +17,11 @@ module LetterGenerator
     end
 
     def from
-      @from ||= OpenStruct.new(data[:from])
+      @from ||= Sender.new(data[:from])
     end
 
     def to
-      @to ||= OpenStruct.new(data[:to])
+      @to ||= Addressee.new(data[:to])
     end
 
     def opening
