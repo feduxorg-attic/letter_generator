@@ -1,7 +1,7 @@
 Feature: Generate Letter
 
   Background:
-    Given the default letter template
+    Given the default letter template exist in working directory
 
   Scenario: Non-existing letter
     Given a letter named "letter" does not exist

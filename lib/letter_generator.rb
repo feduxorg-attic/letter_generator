@@ -14,6 +14,9 @@ require 'letter_generator/letter_template'
 require 'letter_generator/logger'
 require 'letter_generator/application_config'
 require 'letter_generator/main'
+
+LetterGenerator.enable_debug_mode if ENV.key? 'DEBUG'
+
 require 'letter_generator/version'
 require 'letter_generator/logger'
 require 'letter_generator/generator'

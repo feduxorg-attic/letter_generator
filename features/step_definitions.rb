@@ -1,3 +1,34 @@
+Before do
+  @aruba_timeout_seconds = 120
+  step 'a mocked home directory'
+end
+
+# Clean environment
+Around do |_, block|
+  old_env = ENV.to_h
+  block.call
+  ENV.replace old_env
+end
+
+When(/^I start debugging/) do
+  # rubocop:disable Lint/Debugger
+  require 'pry'
+  binding.pry
+  # rubocop:enable Lint/Debugger
+
+  ''
+end
+
+When(/^I run `([^`]+)` in debug mode$/) do |cmd|
+  in_current_dir do
+    # rubocop:disable Lint/Debugger
+    require 'pry'
+    binding.pry
+    # rubocop:enable Lint/Debugger
+    system(cmd)
+  end
+end
+
 Given(/^a letter named "(.*?)" does not exist$/) do |name|
   in_current_dir do
     FileUtils.rm_f name
@@ -10,6 +41,10 @@ end
 
 Given(/^the default letter template$/) do
   step %(a letter template named "letter" with:), File.read(File.expand_path('../../templates/letter.tex.tt', __FILE__))
+end
+
+Given(/^a local letter template named "(.*?)" with:$/) do |name, string|
+  step %(a file named "templates/#{name}.tex.tt" with:), string
 end
 
 Given(/^a letter template named "(.*?)" with:$/) do |name, string|
