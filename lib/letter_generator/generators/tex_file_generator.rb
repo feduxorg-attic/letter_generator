@@ -12,10 +12,16 @@ module LetterGenerator
 
       def generate
         binding.pry
-        metadata = LetterMetadata.new(Dir.glob(File.expand_path('*.yaml')).first)
+
+        metadata_file   = MetadataFile.new
+
+        metadata_parser = MetadataParser.new
+        metadata        = metadata_parser.parse(metadata_file.path)
+
+        output_file     = OutputFile.new('letter_<%= to_s %>.tex')
 
         generator = Generator.new(input_file)
-        generator.run(metadata, output_file)
+        generator.run(metadata, output_file.for('test'))
       end
     end
   end
