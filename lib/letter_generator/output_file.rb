@@ -7,11 +7,11 @@ module LetterGenerator
     public
 
     def initialize(template)
-      @template = Tilt::ErubisTemplate.new(template)
+      @template = Tilt::ErubisTemplate.new{ template }
     end
 
-    def path(object)
-      Pathname.new(File.join(Dir.getwd, template.result(object.to_s.characterize)))
+    def path_for(object)
+      Pathname.new(File.join(Dir.getwd, template.render(object.to_s.characterize)))
     end
   end
 end

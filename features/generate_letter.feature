@@ -18,7 +18,7 @@ Feature: Generate Letter
   Scenario: Non-existing letter
     Given a letter named "letter" does not exist
     When I successfully run `letter_generator generate`
-    Then a letter named "letter" should exist
+    Then a letter named "letter_hans-im-gluck" should exist
 
   Scenario: Template in current working directory
     Given a letter named "letter" does not exist
@@ -27,7 +27,7 @@ Feature: Generate Letter
     Hello world
     """
     When I successfully run `letter_generator generate`
-    Then the letter "letter" should contain:
+    Then the letter "letter_hans-im-gluck" should contain:
     """
     Hello world
     """

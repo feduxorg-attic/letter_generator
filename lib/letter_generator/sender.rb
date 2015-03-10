@@ -1,12 +1,13 @@
 module LetterGenerator
   class Sender
-    attr_reader :name, :co, :street, :city
+    attr_reader :data
 
-    def initialize(name:, street:, city:, co: nil)
-      @name   = name
-      @street = street
-      @city   = city
-      @co     = co
+    def initialize(data)
+      @data = Hash(data)
+    end
+
+    def method_missing(*args)
+      data[args.flatten.first.to_sym]
     end
   end
 end

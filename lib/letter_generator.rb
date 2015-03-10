@@ -24,8 +24,9 @@ require 'letter_generator/sender'
 require 'letter_generator/addressee'
 require 'letter_generator/output_file'
 require 'letter_generator/metadata_file'
+require 'letter_generator/metadata_parser'
 require 'letter_generator/generator'
-require 'letter_generator/letter_metadata'
+require 'letter_generator/metadata'
 require 'letter_generator/runner'
 
 module LetterGenerator

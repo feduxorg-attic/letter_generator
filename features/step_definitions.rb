@@ -1,6 +1,11 @@
 Before do
   @aruba_timeout_seconds = 120
+  step 'a valid pry configuration file'
   step 'a mocked home directory'
+end
+
+Given(/^a valid pry configuration file$/) do
+  ENV['PRYRC'] = File.join(ENV['HOME'], '.pryrc')
 end
 
 # Clean environment
@@ -39,7 +44,9 @@ Then(/^a letter named "(.*?)" should exist$/) do |name|
   step %(a file named "#{name}.tex" should exist)
 end
 
-
+Given(/^the data file "(.*?)" with:$/) do |name, string|
+  step %(a file named "#{name}.yaml" with:), string
+end
 
 Given(/^the default letter template exist in working directory$/) do
   step %(a file named "templates/letter.tex.tt" with:), File.read(File.expand_path('../../templates/letter.tex.tt', __FILE__))
@@ -47,10 +54,6 @@ end
 
 Given(/^the default letter template$/) do
   step %(a letter template named "letter" with:), File.read(File.expand_path('../../templates/letter.tex.tt', __FILE__))
-end
-
-Given(/^a local letter template named "(.*?)" with:$/) do |name, string|
-  step %(a file named "templates/#{name}.tex.tt" with:), string
 end
 
 Given(/^a letter template named "(.*?)" with:$/) do |name, string|

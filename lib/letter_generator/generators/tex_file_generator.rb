@@ -11,8 +11,6 @@ module LetterGenerator
       argument :input_file, required: true
 
       def generate
-        binding.pry
-
         metadata_file   = MetadataFile.new
 
         metadata_parser = MetadataParser.new
@@ -21,7 +19,7 @@ module LetterGenerator
         output_file     = OutputFile.new('letter_<%= to_s %>.tex')
 
         generator = Generator.new(input_file)
-        generator.run(metadata, output_file.for('test'))
+        generator.run(metadata, output_file.path_for(metadata.to.name))
       end
     end
   end

@@ -1,5 +1,5 @@
 module LetterGenerator
-  class LetterMetadata
+  class Metadata
     private
 
     attr_reader :data
