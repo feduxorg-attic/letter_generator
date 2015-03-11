@@ -20,6 +20,9 @@ Or install it yourself as:
 
 ## Usage
 
+
+### Generate letter.tex
+
 To invoke the letter generator, you can use `lg` or `letter_generator`.
 
 You need to place an ERB-template at any of this places
@@ -58,7 +61,7 @@ Generate letter based on template:
     letter_generator generate
     ```
 
-After this a tex file named "letter.tex" exists.
+After this a tex file named "letter-mina-muster.tex" exists.
 
 ## Contributing
 
