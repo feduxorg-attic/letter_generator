@@ -27,7 +27,38 @@ Feature: Generate Letter
     Hello world
     """
     When I successfully run `letter_generator generate`
-    Then the letter "letter_hans-im-gluck" should contain:
+    Then the letter "letter-hans-im-gluck" should contain:
     """
     Hello world
+    """
+
+  Scenario: Multiple addressees
+    Given a letter named "letter" does not exist
+    And the data file "data" with:
+    """
+    from:
+      name: Max Mustermann
+      street: Musterstrasse 1
+      city: Musterstadt
+    to:
+      - name: Hans im Glück
+        street: Gluecksstrasse 1
+        city: Glueckstadt
+      - name: Maxi Mustermann
+        street: Gluecksstrasse 2
+        city: Glueckstadt
+    subject: Subject
+    """
+    And a local letter template named "letter" with:
+    """
+    <%= name %>
+    """
+    When I successfully run `letter_generator generate`
+    Then the letter "letter-hans-im-gluck" should contain:
+    """
+    Hans im Glück
+    """
+    And the letter "letter-maxi-mustermann" should contain:
+    """
+    Maxi Mustermann
     """
