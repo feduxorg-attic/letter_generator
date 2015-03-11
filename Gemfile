@@ -40,6 +40,7 @@ group :development, :test do
 
   gem 'rugged'
   gem 'addressable'
+  
 end
 
 group :debug do
