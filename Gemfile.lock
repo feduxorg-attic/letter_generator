@@ -10,8 +10,9 @@ GIT
 PATH
   remote: .
   specs:
-    letter_generator (0.1.1)
+    letter_generator (0.2.0)
       activesupport
+      erubis
       fedux_org-stdlib
       rake
       thor
