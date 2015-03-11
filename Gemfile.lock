@@ -13,6 +13,7 @@ PATH
     letter_generator (0.1.0)
       activesupport
       fedux_org-stdlib
+      rake
       thor
       tilt
 

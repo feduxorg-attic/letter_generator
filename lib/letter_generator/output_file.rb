@@ -11,7 +11,7 @@ module LetterGenerator
     end
 
     def path_for(object)
-      Pathname.new(File.join(Dir.getwd, template.render(object.to_s.characterize)))
+      Pathname.new(File.expand_path(template.render(object.to_s.characterize)))
     end
   end
 end

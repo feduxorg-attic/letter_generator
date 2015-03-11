@@ -15,7 +15,7 @@ module LetterGenerator
     end
 
     def to
-      @to ||= Addressee.new(data[:to])
+      @to ||= [data[:to]].flatten.map { |t| Addressee.new(t) }
     end
 
     def opening

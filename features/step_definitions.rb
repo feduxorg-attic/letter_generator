@@ -49,7 +49,7 @@ Given(/^the data file "(.*?)" with:$/) do |name, string|
 end
 
 Given(/^the default letter template exist in working directory$/) do
-  step %(a file named "templates/letter.tex.tt" with:), File.read(File.expand_path('../../templates/letter.tex.tt', __FILE__))
+  step %(a local letter template named "letter" with:), File.read(File.expand_path('../../templates/letter.tex.tt', __FILE__))
 end
 
 Given(/^the default letter template$/) do
@@ -61,7 +61,7 @@ Given(/^a letter template named "(.*?)" with:$/) do |name, string|
 end
 
 Given(/^a local letter template named "(.*?)" with:$/) do |name, string|
-  step %(a file named "#{name}.tex.tt" with:), string
+  step %(a file named "templates/#{name}.tex.tt" with:), string
 end
 
 Given(/^a config file named "(.*?)" with:$/) do |name, string|
@@ -78,4 +78,12 @@ end
 
 Then(/^the letter "(.*?)" should contain:$/) do |name, string|
   step %(the file "#{name}.tex" should contain:), string
+end
+
+Then(/^the local letter template "(.*?)" should exist$/) do |name|
+  step %(a file named "templates/#{name}.tex.tt" should exist)
+end
+
+Then(/^the user letter template "(.*?)" should exist$/) do |name|
+  step %(a file named "~/.config/letter_generator/templates/#{name}.tex.tt" should exist)
 end

@@ -7,7 +7,7 @@ module LetterGenerator
         true
       end
 
-      class_option :output_file, default: %w(letter.tex), desc: 'Outputfile'
+      class_option :output_file, required: true, desc: 'Outputfile'
       argument :input_file, required: true
 
       def generate
@@ -16,10 +16,10 @@ module LetterGenerator
         metadata_parser = MetadataParser.new
         metadata        = metadata_parser.parse(metadata_file.path)
 
-        output_file     = OutputFile.new('letter_<%= to_s %>.tex')
+        output_file     = OutputFile.new(options[:output_file])
 
         generator = Generator.new(input_file)
-        generator.run(metadata, output_file.path_for(metadata.to.name))
+        generator.run(metadata, output_file)
       end
     end
   end

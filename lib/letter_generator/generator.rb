@@ -11,7 +11,13 @@ module LetterGenerator
     end
 
     def run(metadata, file)
-      File.write(file, template.render(metadata))
+      metadata.to.each do |addressee| 
+        path    = file.path_for(addressee.name)
+        content = template.render(MetadataProxy.new(addressee, metadata))
+
+        FileUtils.mkdir_p(File.dirname(path))
+        File.write(path, content)
+      end
     end
   end
 end

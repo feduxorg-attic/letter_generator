@@ -18,7 +18,7 @@ Feature: Generate Letter
   Scenario: Non-existing letter
     Given a letter named "letter" does not exist
     When I successfully run `letter_generator generate`
-    Then a letter named "letter_hans-im-gluck" should exist
+    Then a letter named "letter-hans-im-gluck" should exist
 
   Scenario: Template in current working directory
     Given a letter named "letter" does not exist
@@ -51,7 +51,7 @@ Feature: Generate Letter
     """
     And a local letter template named "letter" with:
     """
-    <%= name %>
+    <%= to.name %>
     """
     When I successfully run `letter_generator generate`
     Then the letter "letter-hans-im-gluck" should contain:
