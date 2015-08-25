@@ -1,4 +1,5 @@
 require 'thor'
+require 'pathname'
 require 'thor/actions'
 require 'thor/group'
 require 'tilt'
