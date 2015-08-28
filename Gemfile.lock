@@ -10,7 +10,7 @@ GIT
 PATH
   remote: .
   specs:
-    letter_generator (0.2.1)
+    letter_generator (0.2.2)
       activesupport
       erubis
       fedux_org-stdlib
@@ -76,7 +76,7 @@ GEM
     equalizer (0.0.9)
     erubis (2.7.0)
     excon (0.44.4)
-    fedux_org-stdlib (0.11.16)
+    fedux_org-stdlib (0.11.17)
       activesupport
     ffi (1.9.6)
     filegen (0.4.3)
@@ -269,3 +269,6 @@ DEPENDENCIES
   travis-lint
   versionomy
   yard
+
+BUNDLED WITH
+   1.10.6
