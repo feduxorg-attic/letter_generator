@@ -1,3 +1,5 @@
+# WARNING: I'm sorry, but this gem is not maintained any more. I'm using something else which is not Open Source (yet).
+
 # LetterGenerator
 
 This generator will generate a LaTex Letter Template in the current directory.
